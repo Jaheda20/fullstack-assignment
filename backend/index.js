@@ -64,8 +64,8 @@ async function run() {
         try {
             const result = await cardCollection.findOne({title})
             
-            if(!card) {
-                res.status(404).send({message: 'Card not found'})
+            if(!result) {
+                return res.status(404).send({message: 'Card not found'})
             }
             res.status(200).send(result)
         }
